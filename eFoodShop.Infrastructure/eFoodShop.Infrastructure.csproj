@@ -65,7 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EF\FoodShopContext.cs" />
+    <Compile Include="EF\eFoodShopContext.cs" />
     <Compile Include="EF\Migrations\201703171149151_Inital.cs" />
     <Compile Include="EF\Migrations\201703171149151_Inital.Designer.cs">
       <DependentUpon>201703171149151_Inital.cs</DependentUpon>

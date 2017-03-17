@@ -3,7 +3,7 @@ using eFoodShop.Domain.Entities;
 
 namespace eFoodShop.Infrastructure.EF
 {
-    public class FoodShopContext : DbContext
+    public class eFoodShopContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Cart> Carts { get; set; }

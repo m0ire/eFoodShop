@@ -6,7 +6,7 @@ namespace eFoodShop.Infrastructure.EF
 {
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly FoodShopContext _context;
+        private readonly eFoodShopContext _context;
 
         public ICustomerRepository Customers { get; }
         public IRepository<Cart> Carts { get; }
@@ -15,7 +15,7 @@ namespace eFoodShop.Infrastructure.EF
 
         public UnitOfWork()
         {
-            _context = new FoodShopContext();
+            _context = new eFoodShopContext();
 
             Customers = new CustomerRepository(_context);
             Carts = new Repository<Cart>(_context);

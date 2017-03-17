@@ -2,7 +2,7 @@ using System.Data.Entity.Migrations;
 
 namespace eFoodShop.Infrastructure.EF.Migrations
 {
-    internal sealed class Configuration : DbMigrationsConfiguration<FoodShopContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<eFoodShopContext>
     {
         public Configuration()
         {
@@ -10,7 +10,7 @@ namespace eFoodShop.Infrastructure.EF.Migrations
             MigrationsDirectory = @"EF\Migrations";
         }
 
-        protected override void Seed(FoodShopContext context)
+        protected override void Seed(eFoodShopContext context)
         {
             //  This method will be called after migrating to the latest version.
 

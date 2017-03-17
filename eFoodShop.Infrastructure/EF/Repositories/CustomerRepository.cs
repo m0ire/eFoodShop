@@ -10,9 +10,9 @@ namespace eFoodShop.Infrastructure.EF.Repositories
 {
     public class CustomerRepository : Repository<Customer>, ICustomerRepository
     {
-        private readonly FoodShopContext _foodShopContext;
+        private readonly eFoodShopContext _foodShopContext;
 
-        public CustomerRepository(FoodShopContext foodShopContext) : base(foodShopContext)
+        public CustomerRepository(eFoodShopContext foodShopContext) : base(foodShopContext)
         {
             _foodShopContext = foodShopContext;
         }
