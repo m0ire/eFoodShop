@@ -1,13 +1,56 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using eFoodShop.Domain.SeedWork;
 
 namespace eFoodShop.Domain.Entities
 {
     public class Customer : Entity
     {
-        public string Name { get; private set; }
-        public string Password { get; private set; }
-        public string Email { get; private set; }
+        public string Name {
+            get
+            {
+                return _name;
+            }
+            private set
+            {
+                if(string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException();
+                if(value.Length < 4)
+                    throw new ArgumentOutOfRangeException();
+
+                _name = value;
+            }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            private set
+            {
+                if(string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException();
+
+                if (Regex.IsMatch(value, @"^(.{0,7}|[^0-9]*|[^A-Z])$"))
+                    throw new FormatException();
+
+                _password = value;
+            }
+        }
+
+        public string Email
+        {
+            get { return _email; }
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                    throw new ArgumentNullException();
+
+                if (!Regex.IsMatch(value, @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z", RegexOptions.IgnoreCase))
+                    throw new FormatException();
+
+                _email = value;
+            }
+        }
 
         public Cart Cart
         {
@@ -24,51 +67,22 @@ namespace eFoodShop.Domain.Entities
             }
         }
 
+        private string _name;
         private Cart _cart;
+        private string _password;
+        private string _email;
 
         [Obsolete("Only for model binders and EF, don\'t use it in your code", true)]
         public Customer() { }
 
-        public Customer(string name, string email, string password)
+        public Customer(int id, string name, string email, string password)
         {
+            Id = id;
             Name = name;
             Email = email;
             Password = password;
 
             Cart = new Cart(this);
-
-            if (!IsValid())
-                throw new Exception();
-        }
-
-        public bool IsValid()
-        {
-            return IsValidName() && IsValidEmail() && IsValidPassword();
-        }
-
-        public bool IsValidName()
-        {
-            return true;
-        }
-
-        public bool IsValidEmail()
-        {
-            return true;
-        }
-
-        public bool IsValidPassword()
-        {
-            return true;
-        }
-
-        public void AddToCart(Product product, int count)
-        {
-            Cart.Add(product, count);
-        }
-
-        public void RemoveFromCart(Product product, int count)
-        {
-            Cart.Remove(product, count);
         }
     }
 }

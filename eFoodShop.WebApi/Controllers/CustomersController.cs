@@ -4,7 +4,6 @@ using eFoodShop.Application.Services.Interfaces;
 
 namespace eFoodShop.WebAPI.Controllers
 {
-    [RoutePrefix("api/v1/customers")]
     public class CustomersController : ApiController
     {
         private readonly ICustomerService _customerService;
@@ -25,18 +24,6 @@ namespace eFoodShop.WebAPI.Controllers
         {
             _customerService.Register(customerDto);
             return customerDto.Id;
-        }
-
-        [Route("{id}/add-to-cart")]
-        public void AddToCart(int id, CartItemDto cartItemDto)
-        {
-            _customerService.AddToCart(id, cartItemDto);
-        }
-
-        [Route("{id}/remove-from-cart")]
-        public void RemoveFromCart(int id, CartItemDto cartItemDto)
-        {
-            _customerService.RemoveFromCart(id, cartItemDto);
         }
     }
 }

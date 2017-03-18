@@ -1,6 +1,6 @@
 ﻿using NUnit.Framework;
 
-namespace eFoodShop.Domain.Tests.Models
+namespace eFoodShop.Domain.Tests.Entities
 {
     [TestFixture]
     public class CustomerTest

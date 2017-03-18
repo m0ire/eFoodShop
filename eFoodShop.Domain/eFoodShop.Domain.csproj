@@ -72,6 +72,7 @@
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Product.cs" />
     <Compile Include="SeedWork\Entity.cs" />
+    <Compile Include="SeedWork\Repositories\ICartRepository.cs" />
     <Compile Include="SeedWork\Repositories\IRepository.cs" />
     <Compile Include="SeedWork\Specification\AndSpecification.cs" />
     <Compile Include="SeedWork\Specification\NotSpecification.cs" />

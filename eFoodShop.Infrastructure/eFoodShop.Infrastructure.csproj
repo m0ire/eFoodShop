@@ -71,6 +71,7 @@
       <DependentUpon>201703171149151_Inital.cs</DependentUpon>
     </Compile>
     <Compile Include="EF\Migrations\Configuration.cs" />
+    <Compile Include="EF\Repositories\CartRepository.cs" />
     <Compile Include="EF\Repositories\CustomerRepository.cs" />
     <Compile Include="EF\Repository.cs" />
     <Compile Include="EF\UnitOfWork.cs" />

@@ -9,7 +9,7 @@ namespace eFoodShop.Infrastructure.EF
         private readonly eFoodShopContext _context;
 
         public ICustomerRepository Customers { get; }
-        public IRepository<Cart> Carts { get; }
+        public ICartRepository Carts { get; }
         public IRepository<CartItem> CartItems { get; }
         public IRepository<Product> Products { get; }
 
@@ -18,7 +18,7 @@ namespace eFoodShop.Infrastructure.EF
             _context = new eFoodShopContext();
 
             Customers = new CustomerRepository(_context);
-            Carts = new Repository<Cart>(_context);
+            Carts = new CartRepository(_context);
             CartItems = new Repository<CartItem>(_context);
             Products = new Repository<Product>(_context);
         }

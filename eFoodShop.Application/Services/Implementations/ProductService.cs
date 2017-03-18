@@ -21,7 +21,7 @@ namespace eFoodShop.Application.Services.Implementations
 
         public void Create(ProductDto productDto)
         {
-            var product = new Product(productDto.Name);
+            var product = new Product(0, productDto.Name);
             using (var uow = UnityConfig.Container.Resolve<IUnitOfWork>())
             {
                 uow.Products.Add(product);

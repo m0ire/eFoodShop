@@ -12,6 +12,11 @@ namespace eFoodShop.WebAPI
             config.MapHttpAttributeRoutes();
 
             config.Routes.MapHttpRoute(
+                name: "DefaultActionApi",
+                routeTemplate: "api/v1/{controller}/{id}/{action}"
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/v1/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }

@@ -1,5 +1,4 @@
 ﻿using System.Web.Http;
-using System.Web.Http.Results;
 using eFoodShop.Application.Dto;
 using eFoodShop.Application.Services.Interfaces;
 
@@ -14,17 +13,17 @@ namespace eFoodShop.WebAPI.Controllers
             _productService = productService;
         }
 
-        public JsonResult<ProductDto> Get(int id)
+        public ProductDto Get(int id)
         {
             var productDto = _productService.Get(id);
-            return Json(productDto);
+            return productDto;
         }
 
-        public JsonResult<ProductDto> Post(ProductDto productDto)
+        public ProductDto Post(ProductDto productDto)
         {
             _productService.Create(productDto);
 
-            return Json(productDto);
+            return productDto;
         }
     }
 }

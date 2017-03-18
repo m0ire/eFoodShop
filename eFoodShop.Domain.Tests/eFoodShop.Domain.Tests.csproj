@@ -58,8 +58,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
-    <Compile Include="Models\CustomerTest.cs" />
-    <Compile Include="Models\FoodShopTest.cs" />
+    <Compile Include="Entities\CartTest.cs" />
+    <Compile Include="Entities\CustomerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

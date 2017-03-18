@@ -1,5 +1,4 @@
 ﻿using System;
-using eFoodShop.Domain.SeedWork;
 
 namespace eFoodShop.Domain.Entities
 {
@@ -27,7 +26,9 @@ namespace eFoodShop.Domain.Entities
 
         public CartItem(Cart cart, Product product, int count = 1)
         {
+            CartId = cart.Id;
             Cart = cart;
+            ProductId = product.Id;
             Product = product;
             Count = count;
         }
@@ -35,6 +36,20 @@ namespace eFoodShop.Domain.Entities
         public void SetCount(int count)
         {
             Count = count;
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj == null)
+                return false;
+
+            var cartItemObj = (CartItem)obj;
+            return cartItemObj.CartId == CartId && cartItemObj.ProductId == ProductId;
+        }
+
+        public override int GetHashCode()
+        {
+            return CartId.GetHashCode() + ProductId.GetHashCode();
         }
     }
 }

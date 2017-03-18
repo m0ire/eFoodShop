@@ -6,7 +6,7 @@ namespace eFoodShop.Domain.SeedWork.Repositories
     public interface IUnitOfWork : IDisposable
     {
         ICustomerRepository Customers { get; }
-        IRepository<Cart> Carts { get; }
+        ICartRepository Carts { get; }
         IRepository<CartItem> CartItems { get; }
         IRepository<Product> Products { get; }
         int Complete();

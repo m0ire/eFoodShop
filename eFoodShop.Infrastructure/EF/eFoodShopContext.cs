@@ -3,6 +3,7 @@ using eFoodShop.Domain.Entities;
 
 namespace eFoodShop.Infrastructure.EF
 {
+    // ReSharper disable once InconsistentNaming
     public class eFoodShopContext : DbContext
     {
         public DbSet<Customer> Customers { get; set; }
@@ -14,7 +15,7 @@ namespace eFoodShop.Infrastructure.EF
         {
             modelBuilder.Entity<Cart>().HasRequired(p => p.Customer);
             modelBuilder.Entity<Product>().HasMany(p => p.CartItems).WithRequired(p => p.Product);
-            modelBuilder.Entity<CartItem>().HasKey(p => new {p.CartId, p.ProductId}); 
+            modelBuilder.Entity<CartItem>().HasKey(p => new { p.CartId, p.ProductId });
             base.OnModelCreating(modelBuilder);
         }
     }

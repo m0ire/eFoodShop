@@ -16,7 +16,9 @@ namespace eFoodShop.Domain.Entities
 
         public Cart(Customer customer)
         {
+            Id = customer.Id;
             Customer = customer;
+            CartItems = new List<CartItem>();
         }
 
         public void Add(Product product, int count)

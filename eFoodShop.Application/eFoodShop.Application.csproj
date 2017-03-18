@@ -64,8 +64,10 @@
     <Compile Include="Dto\CartItemDto.cs" />
     <Compile Include="Dto\CustomerDto.cs" />
     <Compile Include="Dto\ProductDto.cs" />
+    <Compile Include="Services\Implementations\CartService.cs" />
     <Compile Include="Services\Implementations\CustomerService.cs" />
     <Compile Include="Services\Implementations\ProductService.cs" />
+    <Compile Include="Services\Interfaces\ICartService.cs" />
     <Compile Include="Services\Interfaces\ICustomerService.cs" />
     <Compile Include="SeedWork\AutoMapper\MapperConfig.cs" />
     <Compile Include="SeedWork\AutoMapper\ApplicationMappingProfile.cs" />
