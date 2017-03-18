@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Entities\Cart.cs" />
     <Compile Include="Entities\Product.cs" />
+    <Compile Include="SeedWork\DomainException.cs" />
     <Compile Include="SeedWork\Entity.cs" />
     <Compile Include="SeedWork\Repositories\ICartRepository.cs" />
     <Compile Include="SeedWork\Repositories\IRepository.cs" />

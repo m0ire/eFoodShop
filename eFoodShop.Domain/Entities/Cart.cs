@@ -16,6 +16,11 @@ namespace eFoodShop.Domain.Entities
 
         public Cart(Customer customer)
         {
+            if (customer == null)
+            {
+                throw new DomainException("Customer is not set.");
+            }
+
             Id = customer.Id;
             Customer = customer;
             CartItems = new List<CartItem>();

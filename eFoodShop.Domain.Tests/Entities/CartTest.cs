@@ -1,12 +1,52 @@
 ﻿using System.Linq;
 using eFoodShop.Domain.Entities;
+using eFoodShop.Domain.SeedWork;
 using NUnit.Framework;
+using Moq;
 
 namespace eFoodShop.Domain.Tests.Entities
 {
     [TestFixture]
     public class CartTest
     {
+
+        [Test]
+        public void ShouldCreateSuccessfully()
+        {
+            var customerId = 1;
+
+            var customerMock = new Mock<Customer>(new object[] { customerId, "qqqqq", "qqqqqq@gmail.com", "qqQqqQq11" });
+
+            var cart = new Cart(customerMock.Object);
+
+            Assert.AreEqual(customerId, cart.Id);
+            Assert.AreEqual(customerMock.Object, cart.Customer);
+            Assert.IsNotNull(cart.CartItems);
+            Assert.IsEmpty(cart.CartItems);
+        }
+
+        [Test]
+        public void ShouldCreateFailed()
+        {
+            Assert.Throws<DomainException>(() =>
+            {
+                var cart = new Cart(null);
+            });
+        }
+
+
+        [Test]
+        public void ShouldAddNewCartItemSuccessfully()
+        {
+            var customer = new Customer(1, "qqqqq", "qqqqqq@gmail.com", "qqQqqQq11");
+            var cart = new Cart(customer);
+            var product = new Product(1, "new_product");
+            var productsCount = 2;
+            cart.Add(product, productsCount);
+        }
+
+
+
         [Test]
         public void ShoulAdd()
         {

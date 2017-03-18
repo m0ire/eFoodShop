@@ -4,7 +4,16 @@
     {
         private int? _requestedHashCode;
 
-        public virtual int Id { get; protected set; }
+        public int Id { get; protected set; }
+
+        protected Entity(int id)
+        {
+            Id = id;
+        }
+
+        protected Entity()
+        {
+        }
 
         public bool IsTransient()
         {

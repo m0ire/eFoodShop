@@ -75,9 +75,8 @@ namespace eFoodShop.Domain.Entities
         [Obsolete("Only for model binders and EF, don\'t use it in your code", true)]
         public Customer() { }
 
-        public Customer(int id, string name, string email, string password)
+        public Customer(int id, string name, string email, string password) : base(id)
         {
-            Id = id;
             Name = name;
             Email = email;
             Password = password;
